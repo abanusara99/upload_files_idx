@@ -1,0 +1,53 @@
+body {
+    background-color: rgb(161, 161, 222);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: rgba(235, 235, 235, 0.5); /* Black with 50% opacity */
+    padding: 50px;
+    border-radius: 10px;
+    height: 100;
+    width: 100;
+    text-align: center;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+.image-container {
+    width: 500px;
+    height: 500px;
+    margin: 0 auto; /* Center the container horizontally */
+    overflow: hidden; /* Hide any content that exceeds the container */
+}
+
+img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover; /* Ensures the image covers the specified dimensions */
+}
+
+video {
+    width: 300px;
+    height: 400px;
+    object-fit: cover; /* Ensures the video covers the specified dimensions */
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #64aa81;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+p {
+    color: rgb(0, 0, 0);
+}

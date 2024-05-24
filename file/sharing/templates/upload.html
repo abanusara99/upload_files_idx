@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload File</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/ups.css' %}">
+    <style>
+        .zoom-buttons {
+            margin-top: 10px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Upload a File</h1>
+        <form id="upload-form" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="uploaded_file">
+            <br><br><br>
+            <button type="submit">Upload</button>
+            <button type="button" onclick="resetImage()">Reset</button>
+        </form>
+        <br>
+        <div class="image-container" id="image-container">
+            {% if url %}
+                <img id="uploaded-image" src="{{ url }}" alt="Uploaded Image">
+            {% else %}
+                <p id="error-message" class="hidden">404 - No file uploaded</p>
+            {% endif %}
+        </div>
+        <div class="zoom-buttons">
+            <button onclick="zoomIn()">Zoom In</button>
+            <button onclick="zoomOut()">Zoom Out</button>
+        </div>
+    </div>
+
+    <script>
+        let currentZoom = 1;
+        const image = document.getElementById('uploaded-image');
+        const imageContainer = document.getElementById('image-container');
+        const errorMessage = document.getElementById('error-message');
+        const uploadForm = document.getElementById('upload-form');
+
+        function zoomIn() {
+            currentZoom += 0.1;
+            image.style.transform = `scale(${currentZoom})`;
+        }
+
+        function zoomOut() {
+            currentZoom -= 0.1;
+            image.style.transform = `scale(${currentZoom})`;
+        }
+
+        function resetImage() {
+            image.src = '';
+            imageContainer.classList.add('hidden');
+            errorMessage.classList.add('hidden');
+            currentZoom = 1;
+        }
+
+        uploadForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const fileInput = document.querySelector('input[name="uploaded_file"]');
+            if (!fileInput.value) {
+                imageContainer.classList.add('hidden');
+                errorMessage.classList.remove('hidden');
+            } else {
+                this.submit();
+            }
+        });
+    </script>
+</body>
+</html>

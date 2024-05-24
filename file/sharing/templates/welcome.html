@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to ABAS App</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/wel.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to ABAS File upload App</h1>
+        <br><br><br>
+        <a href="{% url 'upload_file' %}">
+            <button>Start</button>
+        </a>
+    </div>
+</body>
+</html>

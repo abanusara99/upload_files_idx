@@ -1,0 +1,36 @@
+/* static/css/wel.css */
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #8390d1; /* Optional: Set a background color for the body */
+}
+
+.container {
+    background-color: rgba(0, 0, 0, 0.5); /* Transparent black background */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+}
+
+h1 {
+    margin: 0 0 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #65bb55;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
